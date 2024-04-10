@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="root"></div>
+    <h1>I'm above the root element</h1>
+    <div id="root">
+        <h1>I'm already present here</h1>
+        <h2>I'm already present here</h2>
+        <h3>I'm already present here</h3>
+        <h4>I'm already present here</h4>
+    </div>
+    <h1>I'm below the root element</h1>
 
     <script
         crossorigin
@@ -22,3 +29,43 @@
 
 </body>
 </html>
+
+
+<!--
+The order of the script files are always in sequence.
+We should always keep the react cdn link before the App.js script file.
+
+The correct order of files is:
+
+<script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js">
+</script>
+<script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+</script>
+
+<script src="App.js"></script>
+
+======================================================================
+
+root.render(parent) is putting the parent inside the root element.
+Suppose, if something is already present inside the root element, and I am trying to render parent over here.
+
+root.render(parent) will replace whatever is present inside the root element with the parent.
+
+================================================================================================================
+
+Suppose, I have something above and below the root element. Will they get replaced too ?
+
+Whatever is present above/below the root element, will remain unchanged.
+Because, react is working only inside the root element.
+Everything that we render will render inside the root.
+
+This is why we call react as a library also.
+Because, React can be applied to a small portion of the webpage itself.
+React can only work in header or only in footer or only in sidebar also.
+React only works in the place whatever you make the root as.
+
+-->
