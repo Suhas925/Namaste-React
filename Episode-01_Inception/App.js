@@ -1,16 +1,83 @@
-const heading = React.createElement('h1', {id:"heading", name:"greeting"}, "Hello World From React 🚀");
-const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(heading);
+/*
+<div id="parent">
+  <div id="child">
+    <h1 id="heading">
+      I'm an h1 tag
+    </h1>
+  </div>
+</div>
+*/
 
 /*
-# React.createElement() -> It creates a React Element. Its not an actual 'h1' tag.
-# 'heading' is basically a react element, which is a normal JavaScript object.
-# The object has something known as 'props'. props are the children and the attributes that we pass in.
-# Here the attributes are {id:"heading", name:"greeting"}.
-# The children is "Hello World From React".
-
-
-# render(heading) -> here we are passing a react element, a javascript object 'heading' to render() function.
-# root.render(heading) function's job is basically to take the object 'heading', create the 'h1' tag which the browser understands, and puts it inside the root element.
-# The render() function is responsible for taking the object 'heading', converts it into the 'h1' tag and put it up on to the DOM.
+const parent = React.createElement(
+  'div', {id:"parent"},
+  React.createElement(
+    'div', {id:"child"},
+    React.createElement('h1', {id:"heading"}, "I'm an h1 tag")
+  )
+);
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(parent);
 */
+
+// ______________________________________________________________________
+
+
+/*
+<div id="parent">
+  <div id="child">
+    <h1 id="heading-1">I'm an h1 tag</h1>
+    <h2 id="heading-2">I'm an h2 tag</h2>
+  </div>
+</div>
+*/
+
+
+/*
+const parent = React.createElement(
+  'div', {id:"parent"},
+  React.createElement(
+    'div', {id:"child"},
+    [React.createElement('h1', {id:"heading-1"}, "I'm an h1 tag"),
+     React.createElement('h2', {id:"heading-2"}, "I'm an h2 tag")]
+  )
+);
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(parent);
+*/
+
+// ____________________________________________________________________________
+
+
+/*
+<div id="parent">
+  <div id="child-1">
+    <h1 id="heading-1">I'm an h1 tag</h1>
+    <h2 id="heading-2">I'm an h2 tag</h2>
+  </div>
+  <div id="child-2">
+    <h3 id="heading-1">I'm an h3 tag</h3>
+    <h4 id="heading-2">I'm an h4 tag</h4>
+  </div>
+</div>
+*/
+
+const parent = React.createElement(
+  'div', {id:"parent"},
+  [React.createElement(
+    'div', {id:"child-1"},
+    [React.createElement('h1', {id:"heading-1"}, "I'm an h1 tag"),
+     React.createElement('h2', {id:"heading-2"}, "I'm an h2 tag")]
+  ),
+  React.createElement(
+    'div', {id:"child-2"},
+    [React.createElement('h3', {id:"heading-3"}, "I'm an h3 tag"),
+     React.createElement('h4', {id:"heading-4"}, "I'm an h4 tag")]
+  )]
+);
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(parent);
+
+// Now the code looks complex, than the html.
+// If we have even more complex nested structure, the code will become even more complex.
+// This is why there is something known as JSX.
