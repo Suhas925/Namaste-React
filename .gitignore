@@ -1,3 +1,4 @@
 /node_modules
+/dist
 /Episode-02_Igniting our App/dist
 .parcel-cache
