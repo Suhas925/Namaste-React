@@ -1,0 +1,117 @@
+# The syntax of React.createElement() is very clumsy and complex than the normal html syntax.
+
+using normal html syntax:
+--------------------------
+<div id="parent">
+  <div id="child">
+    <h1 id="heading">Hello World From React</h1>
+  </div>
+</div>
+
+
+using React:
+------------
+const parent = React.createElement(
+  'div', {id:"parent"},
+  React.createElement(
+    'div', {id:"child"},
+    React.createElement('h1', {id:"heading"}, 'Hello World From React');
+  )
+);
+
+
+# The html syntax is easier than that of the React syntax.
+# React.createElement() is not a good way of creating the browser elements, not very developer friendly.
+# It becoms even more clumsy when we need to create nested elements inside the <div>
+# That's why the facebook developers introduced "JSX".
+
+$ What is JSX ?
+===============
+# JSX -> JavaScript Xml or JavaScript Syntax eXtension. A easier way of creating React Elements.
+# JSX is not part of React. JSX and React both are different.
+# React can also be written without JSX and can even build all big applications.
+# JSX is a convention where we merge both html and javascript together.
+
+
+$ How to create a <h1> tag using JSX ?
+=======================================
+
+const jsxheading = <h1>Namaste React using JSX </h1>
+
+# The above piece of code is JSX. When it is executed, it becomes a React Element.
+# JSX is NOT html inside javascript. JSX is different from html.
+# JSX is HTML-LIKE syntax, but NOT html.
+
+# Therefore the 'jsxheading' is a React Element.
+# JSX is just a syntax which when executed, it becomes a React Element which is a normal javascript object.
+
+
+$ More details about JSX :
+===========================
+<h1>Namaste React</h1>  --> This is NOT valid pure JavaScript.
+# JavaScript does not come with JSX built inside it.
+# Browsers JS engines does not understand JSX.
+# JS engines can understand javascript code, but they cannot understand jsx code.
+
+# Because, JS engines can understand only EcmaScript.
+# ES6 is the prue JavaScript that our JS engines understand.
+# If JS engines not able to read jsx code, then how this code is working and the result gets printed.
+
+
+$ How JSX is working ?
+=======================
+# "Parcel" is doing the job behind the scenes.
+# JSX is transpiled before it reaches the Js engine.
+# 'Transpiles' means, this jsx code is converted into the code which the browsers and React understand.
+# This 'Transpiling' is done by "parcel" and it is not doing the job by itself.
+# Parcel is just a manager, it gives the responsibility of transpiling to a package which is known as "Babel".
+
+
+$ What is Babel ?
+==================
+# 'Babel' is a normal JS package, installed by 'parcel'.
+# As soon as we save the code, Babel is converting the JSX code quickly into a code that React will understand.
+# 'Babel' is a JavaScript compiler / Transpiler.
+# It basically takes the JSX and it converts it into the code that the browsers/JS engines/React will understand.
+# Babel is not created by Facebook.
+
+
+# JSX when executed, it is transpiled to React.createElement().
+# React.createElement() gives you a react element which is a JS object.
+# When we do render(), it is rendered as an html element on to the DOM.
+# JSX is at the end of the day, a React Element.
+# That's why, console.log(heading) and console.log(jsxheading) both are objects only.
+# Babel is converting the JSX into React Element.
+
+
+# Now JS engines can render the JSX properly.
+# Few older browsers don't understand the ES6(newer version of JavaScript).
+# Babel transpiles the ES6 code to a code the older browsers understand.
+# Babel is a champion in dealing the conversions of one code into another.
+
+
+
+# In HTML ---> class="head"
+# In JSX ----> className="head"
+
+<h1 className="head"> Namaste React using JSx </h1>
+
+# In JSX we don't use colons(:) and we only use cameCase.
+# Ex : className, tabIndex and so on..
+# For attributes in JSX we have to use camelCase only.
+
+
+$ How to write the jsx code ?
+=============================
+
+# If your jsx is in single line, it is perfectly valid jsx.
+<h1 className="head"> Hello World From React </h1>
+
+
+# But if we want to write our jsx in multiple lines, we have to wrap it inside paranthesis().
+# Bcoz, babel needs to understan where exactly the jsx is starting and where it is ending.
+
+(<h1 className="head" tabIndex="1">
+  Hello World From React using JSX
+</h1>)
+
