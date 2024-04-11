@@ -1,27 +1,44 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+// React Element
 
-// Just like we have DOM(html) elements, we also have React Elements.
-// React Elements are kind of equivalent to DOM Elements.
+/*
+const Title = (
+  <h1 className="head" tabIndex="5">
+    Namaste React using a React Element
+  </h1>
+);
 
-const heading = React.createElement('h1', {id:"heading"}, "Hello World From React");
-// This is a React Element, NOT a html Element.
-// React Element at the end of the day is a normal JavaScript Object.
-// React.createElement() -> basically creates an object.
-// When we render this react element on to the DOM, then it becomes an html element.
-
-// ReactElement(Object) ----->>rendering----->> HTML element.
-
-
-// creating a root to render.
 const root = ReactDOM.createRoot(document.querySelector('#root'));
-// This root will now become the root of our React App.
-// Whatever happens inside the react will happen inside this root.
+root.render(Title);
+*/
 
 
-// rendering the heading on to the DOM.
-root.render(heading);
-// Here 'heading' is a normal javaScript object created by React.createElement();
-// Now the powerfull library ReactDOM, takes this object and converts it into html and puts it on the browser.
-// root.render(heading) -> will replace everthing present inside the root element with the heading.
+
+
+// React Functional Component
+
+
+const Title = () => (
+  <h1 className="head" tabIndex="5">
+    This is Namaste React Title
+  </h1>
+);
+
+
+const HeadingComponent = () => (
+  <div id="container">
+    <Title/>
+    <h1 className="heading">
+      Namaste React using Functional Component
+    </h1>
+  </div>
+);
+
+
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<HeadingComponent/>);
+
+// Putting a Component inside another Component is called "Component Composition".
+

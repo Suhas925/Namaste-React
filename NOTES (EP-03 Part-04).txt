@@ -1,0 +1,94 @@
+================ REACT COMPONENTS =================
+
+# In React everything is a component.
+# Ex: a Button, a Header, a Footer, a cart, a title, input box, search bar etc..
+
+# If there is a list of cards, that is also a React Component.
+
+# There are 2 types of React Component.
+
+1) Class Based Component -> Older way of writing code. -> uses javascript classes.
+2) Functional Component -> New way of writing code. -> used javascript functions.
+
+
+$ What is React Functional Component ?
+======================================
+# React Functional Component is just a normal JavaScript function, which return a piece of jsx.
+# It is just a function returning a JSX element.
+
+const HeadingComponent () => {
+  return <h1> Namaste React Functional Component </h1>
+}
+# This is React Functional Component. Component name should start with uppercase letter.
+# A function that returns a JSX code is a Fuctional Component.
+# A function which returns a React Element is known as React Functional Component.
+# In the above code, "<h1> Namaste React Functional Component </h1>" is a React Element.
+
+$ Short Hand Syntax:
+===================
+
+const function = () => true;
+# This means that the function is returning true.
+
+
+
+const HeadingComponent = () => {
+  return <h1 className="heading"> Namaste React </h1>;
+};
+
+(OR)
+
+const HeadingComponent = () => <h1 className="heading"> Namaste React </h1>
+
+(OR)
+
+const HeadingComponent = () => (
+  <h1 className="heading"> Namaste React </h1>
+);
+
+__________________________________________________________
+
+# We can also write nested elements using jsx.
+
+const HeadingComponent = () => (
+  <div id="parent">
+    <div id="child">
+      <h1 className="heading"> React Functional Component </h1>
+    </div>
+  </div>
+);
+
+# Now I Want to render the "HeadingComponent" into "root".
+
+# We render a React Element 'heading' like --> root.render(heading);
+# But we cannot render a React Component like that.
+
+# All the React Components are rendered as "root.render(<HeadingComponent/>)"
+
+# root.render(<Component/>) --> This is the syntax which Babel understands.
+
+
+$ What is Component Composition ?
+=================================
+# It is a way of placing a Component inside another Component.
+
+const Title = () => (
+  <div className="title-container" tabIndex="5">
+    <h1 className="title">
+      This is Namaste React Title
+    </h1>
+  </div>
+);
+
+const HeadingComponent = () => (
+  <div id="container">
+    <Title/>
+    <h1 className="heading">
+      Namaste React using Functional Component
+    </h1>
+  </div>
+);
+
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<HeadingComponent/>);
+
