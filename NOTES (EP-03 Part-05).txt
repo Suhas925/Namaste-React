@@ -1,0 +1,99 @@
+# To create a Functional Component, we can use both the Arrow Function and Normal JavaScript Function.
+
+const Title = function () {
+  return (
+    <h1 className="head" tabIndex="5">
+      Functional Component using Normal JavaScript Function
+    </h1>
+  );
+};
+
+# This is perfectly valid React Component.
+# But most of the times we will be using Arrow Functions.
+
+
+# Inside the JSX, we can write any JavaScript code using curly braces {}.
+# We can Write JavaScript Expressions inside jsx.
+
+const name = 'Suhas';
+const id = 'GSH@123';
+
+const MainComponent = () => (
+  <div id="container">
+    <h1>{console.log('This is Namaste React Course)}</h1>
+    <h2>This is my Info: </h2>
+    <h3> {name}, {id}</h3>
+  </div>
+);
+
+
+$ How to put a React Element inside a React Element ?
+=====================================================
+
+const elem = <span>React Element</span>
+
+const title = (
+  <h1 className="head" tabIndex="5">
+    {elem}
+    Namaste React!
+  </h1>
+);
+
+
+$ How to put a React Element inside a Component ?
+==================================================
+
+const Component = () => (
+  {React Element}
+);
+
+root.render(<Component/>);
+
+
+$ How to put a Component inside a React Element ?
+================================================
+
+React_Element = (<Component/>);
+root.render(React_Element);
+
+
+
+
+$ Different ways of calling a Component:
+========================================
+const Title = () => ();
+
+const HeadingComponent = () => (
+  <Title/>
+  <Title></Title>
+  {Title()}
+);
+
+# Functional Component is a normal JavaScript Function which can be called. -> Component();
+
+
+
+=================================================================================
+
+# Suppose we are fetching some 'data' from an api.
+# And we are using this data inside our jsx as {data}.
+
+const data = api.getData();
+
+cosnt Component = () => (
+  {data}
+);
+
+$ What if the api sends some malicious data ?
+=============================================
+
+# Suppose, an attacker tries to send some malicious code which will get executed inside our jsx.
+# This type of attack is known as "CROSS-SIDE SCRIPTING"
+
+
+# But JSX is so amazing that it takes care of these injection attacks.
+# Even if the api passes some malicious data into our code, JSX will ESCAPE it and SANITIZES the data.
+# whenever any data is injected as {data} in jsx, jsx won't blindly run the data, rather it will sanitize your data whatever is comming and then passes it into the code.
+# This is how powerful JSX is.....
+
+
