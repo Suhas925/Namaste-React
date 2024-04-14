@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Namaste React Web Series by Akshay Saini",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "start": "del /q .parcel-cache && parcel index.html",
+    "build": "del /q .parcel-cache && parcel build index.html",
     "test": "jest"
   },
   "author": "",
