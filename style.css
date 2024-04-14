@@ -46,12 +46,13 @@ ul li {
 
 .restaurant-card {
     width : 200px;
-    height : 320px;
-    padding : 5px;
+    height : 360px;
+    padding : 6px;
 }
 .restaurant-card:hover {
     border : 1px solid black;
     cursor : pointer;
+    padding : 3px;
 }
 
 .res-logo {
