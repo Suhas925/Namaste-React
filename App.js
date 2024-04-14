@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import resObj from "./Data.js";
+import resList from "./Data.js";
 
 
 /**
@@ -67,13 +67,24 @@ const RestaurantCard = (props) => {
 };
 
 
-// Below the 'resObj' is imported from 'Data.js' file.
+// Below the 'resList' is imported from 'Data.js' file.
 const Body = () => {
   return (
     <div className="body">
       <div className="search-bar">Search</div>
       <div className="restaurants-container">
-        <RestaurantCard resData={ resObj }/>
+        <RestaurantCard resData={ resList[0]}/>
+        <RestaurantCard resData={ resList[1]}/>
+        <RestaurantCard resData={ resList[2]}/>
+        <RestaurantCard resData={ resList[3]}/>
+        <RestaurantCard resData={ resList[4]}/>
+        <RestaurantCard resData={ resList[5]}/>
+        <RestaurantCard resData={ resList[6]}/>
+        <RestaurantCard resData={ resList[7]}/>
+        <RestaurantCard resData={ resList[8]}/>
+        <RestaurantCard resData={ resList[9]}/>
+        <RestaurantCard resData={ resList[10]}/>
+        <RestaurantCard resData={ resList[11]}/>
       </div>
     </div>
   )
