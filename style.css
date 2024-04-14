@@ -45,8 +45,7 @@ ul li {
 }
 
 .restaurant-card {
-    width : 200px;
-    height : 360px;
+    width : 220px;
     padding : 6px;
 }
 .restaurant-card:hover {
