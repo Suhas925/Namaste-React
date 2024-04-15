@@ -65,3 +65,7 @@ ul li {
     flex-wrap : wrap;
     gap : 10px;
 }
+
+.filter {
+    margin : 10px;
+}
