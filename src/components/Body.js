@@ -19,7 +19,14 @@ const Body = () => {
 
     const json = await data.json();
     console.log(json);
+
+    /*
+    This is not a good way of writing code. We can use Optional Chaining.
     setListOfRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    */
+
+    // Optional Chaining
+    setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   return (
