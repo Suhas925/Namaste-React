@@ -28,6 +28,7 @@ body {
 ul {
     list-style-type : none;
     display: flex;
+    align-items : center;
     gap : 40px;
 }
 
@@ -86,4 +87,14 @@ ul li {
     flex-wrap : wrap;
     gap : 10px;
     margin-top : 30px;
+}
+
+.Btn {
+    background-color: green;
+    color : white;
+    padding : 10px 20px;
+    cursor : pointer;
+    border : none;
+    border-radius : 10px;
+    font-size: 20px;
 }
