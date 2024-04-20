@@ -6,7 +6,12 @@ import { Shimmer } from "./Shimmer.js";
 const Body = () => {
 
   // State Variable - Super Powerful Variable
+  // Whenever a state variable gets updated, react tirggers Reconciliation Cycle (re-renders the component).
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  const [searchText, setSearchText] = useState('');
+
+  console.log("Body Rendered");
 
   useEffect(()=>{
     fetchData();
@@ -19,7 +24,6 @@ const Body = () => {
     );
 
     const json = await data.json();
-    console.log(json);
 
     /*
     This is not a good way of writing code. We can use Optional Chaining.
@@ -30,12 +34,35 @@ const Body = () => {
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchText(e.target.value);
+    if (!e.target.value) {
+      fetchData();
+    }
+  };
+
   // Conditional Rendering
   return !listOfRestaurants.length ? ( 
     <Shimmer/> 
     ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box" value={searchText}
+            onChange={handleChange} placeholder="search for restaurants and food"
+          />
+          <button onClick={() => {
+            // Filter the restaurant cards and update the UI
+            console.log(searchText);
+            const filteredRestaurants = listOfRestaurants.filter(
+              (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()) 
+            );
+            setListOfRestaurants(filteredRestaurants);
+          }}>
+            Search
+          </button>
+        </div>
         <button className="filterBtn"
           onClick={() => {
             // Filter Logic Here
@@ -47,6 +74,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
+
       <div className="restaurants-container">
         {
           listOfRestaurants.map(restaurant => (
