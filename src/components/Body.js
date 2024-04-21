@@ -8,6 +8,7 @@ const Body = () => {
   // State Variable - Super Powerful Variable
   // Whenever a state variable gets updated, react tirggers Reconciliation Cycle (re-renders the component).
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const [searchText, setSearchText] = useState('');
 
@@ -32,6 +33,7 @@ const Body = () => {
 
     // Optional Chaining
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   const handleChange = (e) => {
@@ -56,9 +58,12 @@ const Body = () => {
             // Filter the restaurant cards and update the UI
             console.log(searchText);
             const filteredRestaurants = listOfRestaurants.filter(
-              (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()) 
+              (res) => (
+                res.info.name.toLowerCase().includes(searchText.toLowerCase()) || 
+                res.info.cuisines.join(", ").toLowerCase().includes(searchText.toLowerCase())
+              )
             );
-            setListOfRestaurants(filteredRestaurants);
+            setFilteredRestaurants(filteredRestaurants);
           }}>
             Search
           </button>
@@ -77,7 +82,7 @@ const Body = () => {
 
       <div className="restaurants-container">
         {
-          listOfRestaurants.map(restaurant => (
+          filteredRestaurants.map(restaurant => (
             <RestaurantCard key={restaurant.info.id} resData={restaurant}/>
           ))
         }
