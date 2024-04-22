@@ -63,7 +63,8 @@ ul li {
     height : 40px;
 }
 
-.filterBtn {
+.filterBtn,
+.allRestBtn {
     cursor : pointer;
     margin-left : 8px;
     height : 40px;
@@ -106,7 +107,10 @@ ul li {
     margin-top : 40px;
 }
 
-.Btn {
+.Btn,
+.filterBtn,
+.allRestBtn,
+.search > button {
     background-color: green;
     color : white;
     padding : 10px 20px;
@@ -115,3 +119,4 @@ ul li {
     border-radius : 10px;
     font-size: 20px;
 }
+

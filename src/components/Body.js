@@ -32,8 +32,8 @@ const Body = () => {
     */
 
     // Optional Chaining
-    setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setListOfRestaurants((json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants));
+    setFilteredRestaurants((json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants) );
   };
 
   const handleChange = (e) => {
@@ -45,9 +45,9 @@ const Body = () => {
   };
 
   // Conditional Rendering
-  return !listOfRestaurants.length ? ( 
-    <Shimmer/> 
-    ) : (
+  return !listOfRestaurants.length
+  ? (<Shimmer/>) 
+  : (
     <div className="body">
       <div className="filter">
         <div className="search">
@@ -74,9 +74,15 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.3
             );
-            setListOfRestaurants(filteredList);
+            setFilteredRestaurants(filteredList);
           }}>
           Top Rated Restaurants
+        </button>
+        <button className="allRestBtn"
+          onClick={() => {
+            fetchData();
+          }}>
+          Show All Restaurants
         </button>
       </div>
 
