@@ -5,8 +5,6 @@ import { Shimmer } from "./Shimmer.js";
 
 const Body = () => {
 
-  // State Variable - Super Powerful Variable
-  // Whenever a state variable gets updated, react tirggers Reconciliation Cycle (re-renders the component).
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
@@ -25,11 +23,6 @@ const Body = () => {
     );
 
     const json = await data.json();
-
-    /*
-    This is not a good way of writing code. We can use Optional Chaining.
-    setListOfRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-    */
 
     // Optional Chaining
     setListOfRestaurants((json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants));

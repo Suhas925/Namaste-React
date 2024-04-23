@@ -76,9 +76,11 @@ ul li {
     padding : 6px;
 }
 .restaurant-card:hover {
-    border : 1px solid black;
+    /* border : 1px solid black;
+    padding : 3px; */
     cursor : pointer;
-    padding : 3px;
+    transform : scale(1.06);
+    transition : 0.5s;
 }
 
 .res-logo {
