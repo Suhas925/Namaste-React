@@ -10,12 +10,13 @@ import SignIn from "./components/SignIn.js";
 
 import Error from "./components/Error.js";
 
+import {Outlet} from 'react-router-dom';
 
 const AppLayout = () => {
   return (
     <div className="app">
       <Header/>
-      <Body/>
+      <Outlet/>
     </div>
   )
 };
@@ -24,16 +25,22 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout/>,
+    children: [
+      {
+        path: "/",
+        element: <Body/>,
+      },
+      {
+        path: "/about",
+        element: <About/>,
+      },
+      {
+        path: "/signin",
+        element: <SignIn/>,
+      }
+    ],
     errorElement: <Error/>,
   },
-  {
-    path: "/about",
-    element: <About/>,
-  },
-  {
-    path: "/signin",
-    element: <SignIn/>,
-  }
 ]);
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));

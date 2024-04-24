@@ -1,6 +1,8 @@
 import {LOGO_URL} from "../utils/constants.js";
 import {useState, useEffect} from 'react';
 
+import {Link} from 'react-router-dom';
+
 const Header = () => {
   console.log("Header Rendered");
 
@@ -25,11 +27,15 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>AboutUs</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
           <li>Offers</li>
           <li>Cart</li>
-          <button onClick={handleButton} className="Btn">{sign}</button>
+          <button onClick={handleButton} className="Btn"><Link to="/signin">{sign}</Link></button>
         </ul>
       </div>
     </div>
