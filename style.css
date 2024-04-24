@@ -64,8 +64,7 @@ ul li {
     height : 40px;
 }
 
-.filterBtn,
-.allRestBtn {
+.filterBtn {
     cursor : pointer;
     margin-left : 8px;
     height : 40px;
@@ -112,7 +111,6 @@ ul li {
 
 .Btn,
 .filterBtn,
-.allRestBtn,
 .search > button {
     background-color: green;
     color : white;

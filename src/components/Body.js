@@ -10,6 +10,8 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState('');
 
+  const [toggleButton, setToggleButton] = useState('Top Rated Restaurants');
+
   console.log("Body Rendered");
 
   useEffect(()=>{
@@ -68,14 +70,17 @@ const Body = () => {
               (res) => res.info.avgRating > 4.3
             );
             setFilteredRestaurants(filteredList);
+
+            if (toggleButton === 'Top Rated Restaurants') {
+              setToggleButton('Show All Restaurants');
+            }
+            else {
+              fetchData();
+              setToggleButton('Top Rated Restaurants');
+            }
+
           }}>
-          Top Rated Restaurants
-        </button>
-        <button className="allRestBtn"
-          onClick={() => {
-            fetchData();
-          }}>
-          Show All Restaurants
+          {toggleButton}
         </button>
       </div>
 
