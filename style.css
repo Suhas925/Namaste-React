@@ -25,14 +25,14 @@ body {
     height : 100px;
 }
 
-ul {
+.nav-items ul {
     list-style-type : none;
     display: flex;
     align-items : center;
     gap : 40px;
 }
 
-ul li {
+.nav-items ul li {
     padding : 0 10px;
     font-size: 20px;
 }

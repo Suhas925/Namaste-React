@@ -1,0 +1,36 @@
+* {
+    padding : 0;
+    margin : 0;
+    box-sizing : border-box;
+}
+
+.main {
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+}
+
+.resName {
+    margin-bottom : 26px;
+    margin-top : 10px;
+}
+
+h3 {
+    margin : 8px 0;
+}
+
+.cuisines {
+    cursor : pointer;
+    color : red;
+    text-decoration : underline;
+}
+
+.main ul {
+    display : flex;
+    flex-direction : column;
+    gap : 5px;
+}
+.main ul li {
+    list-style-type : disc;
+}

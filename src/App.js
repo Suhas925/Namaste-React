@@ -12,6 +12,8 @@ import Error from "./components/Error.js";
 
 import {Outlet} from 'react-router-dom';
 
+import RestaurantMenu from "./components/RestaurantMenu.js";
+
 const AppLayout = () => {
   return (
     <div className="app">
@@ -37,6 +39,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/signin",
         element: <SignIn/>,
+      },
+      {
+        path:"/restaurants/:resId",
+        element: <RestaurantMenu/>,
       }
     ],
     errorElement: <Error/>,
