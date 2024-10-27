@@ -1,46 +1,47 @@
-import {LOGO_URL} from "../utils/constants.js";
-import {useState, useEffect} from 'react';
-
-import {Link} from 'react-router-dom';
+import "../css/Header.css";
+import { LOGO_URL } from "../utils/constants.js";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  console.log("Header Rendered");
-
-  const [sign, setSign] = useState('Sign In');
-
+  const [logBtn, setLogBtn] = useState("Login");
+  const handleButton = () => {
+    logBtn === "Login" ? setLogBtn("Logout") : setLogBtn("Login");
+  };
 
   useEffect(() => {
-  console.log("useEffect called");
-  },
-  [sign]);
-
-  const handleButton = () => {
-    sign === 'Sign In'
-      ? setSign('Sign Up')
-      : setSign('Sign In')
-  };
+    console.log("useEffect called");
+  }, []);
 
   return (
     <div className="header">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL}/>
+        <img className="logo" src={LOGO_URL} />
       </div>
       <div className="nav-items">
         <ul>
           <li>
-            <Link className="link" to="/">Home</Link>
+            <Link to="/" className="Link">
+              Home
+            </Link>
           </li>
           <li>
-            <Link className="link" to="/about">About Us</Link>
+            <Link to="/about" className="Link">
+              About Us
+            </Link>
           </li>
-          <li>Offers</li>
+          <li>
+            <Link to="/contact" className="Link">
+              Contact Us
+            </Link>
+          </li>
           <li>Cart</li>
-          <button onClick={handleButton} className="Btn">
-            <Link className="linkBtn" to="/signin">{sign}</Link>
+          <button onClick={handleButton} className="log-btn">
+            {logBtn}
           </button>
         </ul>
       </div>
     </div>
-  )
+  );
 };
 export default Header;

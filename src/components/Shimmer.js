@@ -1,26 +1,35 @@
-import React from 'react'
+import "../css/Shimmer.css";
 
-export const Shimmer = () => {
+const Shimmer = () => {
   return (
     <div className="shimmer-container">
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
     </div>
-  )
+  );
 };
+
+export default Shimmer;

@@ -1,10 +1,6 @@
-/* * {
-    padding : 0;
-    margin : 0;
-    box-sizing : border-box;
-}
 
-.main {
+
+.main-menu {
     display : flex;
     flex-direction : column;
     justify-content : center;
@@ -16,11 +12,11 @@
     margin-top : 10px;
 }
 
-h3 {
+.ratings {
     margin : 8px 0;
 }
 
-.cuisines {
+.menu-cuisines {
     cursor : pointer;
     color : red;
     text-decoration : underline;
@@ -33,4 +29,4 @@ h3 {
 }
 .main ul li {
     list-style-type : disc;
-} */
+}

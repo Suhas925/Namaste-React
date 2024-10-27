@@ -1,17 +1,4 @@
-/* * {
-    margin : 0;
-    padding : 0;
-    box-sizing : border-box;
-} */
-* {
-    box-sizing : border-box;
-}
-body {
-    height : 1000px;
-}
-
-
-.header {
+/* .header {
     display: flex;
     justify-content: space-between;
     align-items : center;
@@ -82,8 +69,6 @@ body {
     height : 400px;
 }
 .restaurant-card:hover {
-    /* border : 1px solid black;
-    padding : 3px; */
     cursor : pointer;
     transform : scale(1.06);
     transition : 0.5s;
@@ -139,4 +124,4 @@ body {
 .linkBtn {
     color : white;
     text-decoration : none;
-}
+} */
