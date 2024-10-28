@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/User.css';
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -9,21 +10,21 @@ class UserClass extends React.Component {
       count: 22,
       id: "SSB9125",
     };
-    console.log("Child Constructor");
+    console.log(this.props.user +" - "+ "Child Constructor");
   }
 
   // when the class component is loaded, first of all, the constructor is called, then the render() method is called.
   // Once this class based component is mounted on to the dom, then this 'componentDidMount()' is called.
 
   componentDidMount() {
-    console.log("Child Component Did Mount");
+    console.log(this.props.user +" - "+ "Child Component Did Mount");
   }
 
   render() {
     const { location } = this.props;
     const { id } = this.state;
 
-    console.log("Child Render");
+    console.log(this.props.user +" - "+ "Child Render");
 
     return (
       <div className="user-card">
