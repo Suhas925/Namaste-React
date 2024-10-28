@@ -8,7 +8,7 @@ class UserClass extends React.Component {
 
   // creating state variables inside a class based component.
   this.state = {
-    count : 222,
+    count : 22,
     id: "SSB9125",
   };
  }
@@ -18,7 +18,18 @@ class UserClass extends React.Component {
     const {id} = this.state;
     return (
       <div className="user-card">
-        <h1>Count: {this.state.count}, ID: {id}</h1>
+        <h1>Count: {this.state.count}</h1>
+        <button onClick={() => {
+          // NEVER UPDATE STATE VARIABLES DIRECTLY LIKE:  this.state.count = this.state.count + 1;
+
+          this.setState({
+            count : this.state.count + 1,
+          })
+        }}
+        >
+          Up Count
+        </button>
+        <p>ID: {id}</p>
         <h2>Name: {this.props.user}</h2>
         <h3>Location: {location}</h3>
         <h4>Email: suhassaibadam@gmail.com</h4>

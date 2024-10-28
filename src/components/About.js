@@ -6,7 +6,7 @@ const About = () => {
         <div>
             <h1>About</h1>
             <h2>Everyone likes our Foodieapp</h2>
-            <User username={"Suhas Sai (functional)"}/>
+            {/* <User username={"Suhas Sai (functional)"}/> */}
             <UserClass user={"suhas (class)"} location={"Bengaluru (class)"}/>
         </div>
     )
