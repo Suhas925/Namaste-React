@@ -1,4 +1,3 @@
-import '../css/User.css';
 import {useState} from 'react';
 
 const User = (props) => {

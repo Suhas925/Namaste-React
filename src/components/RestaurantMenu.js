@@ -1,4 +1,3 @@
-import "../css/RestaurantMenu.css";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 

@@ -1,4 +1,3 @@
-import "../css/Header.css";
 import { LOGO_URL } from "../utils/constants.js";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

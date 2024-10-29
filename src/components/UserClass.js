@@ -1,5 +1,4 @@
 import React from "react";
-import '../css/User.css';
 import axios from 'axios';
 
 class UserClass extends React.Component {
