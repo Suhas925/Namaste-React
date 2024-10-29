@@ -2,8 +2,8 @@
 
 .main-menu {
     display : flex;
-    flex-direction : column;
-    justify-content : center;
+    flex-direction : row;
+    justify-content : space-around;
     align-items : center;
 }
 
@@ -17,9 +17,7 @@
 }
 
 .menu-cuisines {
-    cursor : pointer;
-    color : red;
-    text-decoration : underline;
+    color : rgb(0, 0, 0);
 }
 
 .main ul {
@@ -29,4 +27,11 @@
 }
 .main ul li {
     list-style-type : disc;
+}
+
+.menu-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
