@@ -38,6 +38,7 @@ const Header = () => {
               Contact Us
             </Link>
           </li>
+          <li><Link to="/grocery" className="Link">Grocery</Link></li>
           <li>Cart</li>
           <button onClick={handleButton} className="log-btn">
             {logBtn}
