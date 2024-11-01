@@ -11,16 +11,15 @@ const Header = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+    <div className="flex justify-between items-center shadow-lg mb-4">
+      <div className="px-4">
+        <img className="w-32" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
+      <div className="flex items-center px-8 text-lg">
+        <ul className="flex gap-8 items-center m-4">
           <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
           <li>
             <Link to="/" className="Link">
@@ -37,9 +36,16 @@ const Header = () => {
               Contact Us
             </Link>
           </li>
-          <li><Link to="/grocery" className="Link">Grocery</Link></li>
+          <li>
+            <Link to="/grocery" className="Link">
+              Grocery
+            </Link>
+          </li>
           <li>Cart</li>
-          <button onClick={handleButton} className="log-btn">
+          <button
+            onClick={handleButton}
+            className="text-white bg-green-500 font-bold px-4 py-1 rounded-2xl border-2 border-solid border-green-500 hover:text-green-500 hover:bg-white w-24"
+          >
             {logBtn}
           </button>
         </ul>
