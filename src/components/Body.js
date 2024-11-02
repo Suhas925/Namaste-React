@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withTopRatedLabel} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -10,6 +10,8 @@ const Body = () => {
   const [text, setText] = useState("Top Rated Restaurants");
   const [searchText, setSearchText] = useState("");
 
+  const RestaurantCardTopRated = withTopRatedLabel(RestaurantCard);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -19,7 +21,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const jsonData = await response.json();
-    console.log(jsonData);
+    // console.log(jsonData);
     setListOfRestaurants(
       jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -65,6 +67,8 @@ const Body = () => {
       <h1>Looks like you're offline. Please check your internet connection.</h1>
     );
 
+    console.log("list:", filteredRestaurants);
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -101,7 +105,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
+            {restaurant.info.avgRating > 4.5
+            ? <RestaurantCardTopRated resData={restaurant}/>
+            : 
             <RestaurantCard resData={restaurant} />
+            }
           </Link>
         ))}
         {/* <RestaurantCard resData={resList[0]}/>*/}
