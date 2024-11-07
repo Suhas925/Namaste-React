@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useState, useEffect} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
@@ -10,37 +10,42 @@ import Error from "./components/Error.js";
 import {Outlet} from 'react-router-dom';
 import RestaurantMenu from "./components/RestaurantMenu.js";
 
-// Parcel bundles all the components into a sinlge js file, whose size may increase as the no of components increases.
-// We can do something, where the application is just one js file, but, smaller js files.
-// Whenever we are building large scale production ready application, we have to break down our app into smaller pieces.
+import UserContext from './utils/UserContext.js';
 
-// Should we do bundling ? Yes, we have to.
-// Suppose, there are 1000 components in our app, and we don't need 1000 files loading into our webpage.
-// This will be a lot of work for browsers to do, for making 1000 calls.
-// We don't want to put the 1000 files into one js file.
-
-// We will try to make smaller bundles of these files, this process is known as:
-
-// Chunking
-// Code Splitting
-// Dynamic Bundling
-// Lazy Loading
-// Dynamic Import.
-// On-Demand Loading.
-
-// I will not import <Grocery/> directly like this.
-// import Grocery from "./components/Grocery.js";
-
-// But, I will import <Grocery/> using "Lazy Loading".
 const Grocery = lazy(() => import("./components/Grocery"));
 
 
 const AppLayout = () => {
+
+  const [userName, setUserName] = useState();
+
+  // Authentication Logic
+  useEffect(() => {
+    // Make an API call and send Username and Password
+    const data = { name: "Kirtan Badam"};
+    setUserName(data.name);
+  }, [])
+
   return (
-    <div className="app">
-      <Header/>
-      <Outlet/>
-    </div>
+
+    // outside it will use the 'Default User';
+    // <UserContext.Provider value={{loggedInUser: userName}}>
+    //   {/*Here it will be userName = Kirtan Badam */}
+    //   <div className="app">
+    //     <UserContext.Provider value={{loggedInUser: "Shiva"}}>
+    //       {/*Here it will be "Shiva" */}
+    //       <Header/>
+    //     </UserContext.Provider>
+    //   <Outlet/>
+    // </div>
+    // </UserContext.Provider>
+
+    <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+      <div className="app">
+        <Header/>
+        <Outlet/>
+      </div>
+    </UserContext.Provider>
   )
 };
 

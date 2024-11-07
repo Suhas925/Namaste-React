@@ -33,7 +33,7 @@ const RestaurantMenu = () => {
         c?.["card"]?.["card"]?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log("Categories:", categories);
+  // console.log("Categories:", categories);
 
   return (
     <div className="main-menu flex justify-center items-center flex-col gap-4">

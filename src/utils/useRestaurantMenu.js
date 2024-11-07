@@ -12,7 +12,7 @@ const useRestaurantMenu = (resId) => {
   const fetchData = async() => {
 
     const response = await axios.get(MENU_API + resId);
-    console.log("original:", response);
+    // console.log("original:", response);
     setResInfo(response?.data?.data);
 
   }

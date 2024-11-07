@@ -1,8 +1,9 @@
 import RestaurantCard, {withTopRatedLabel} from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from '../utils/UserContext';
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -69,7 +70,9 @@ const Body = () => {
       <h1>Looks like you're offline. Please check your internet connection.</h1>
     );
 
-    console.log("list:", filteredRestaurants);
+    // console.log("list:", filteredRestaurants);
+
+    const {loggedInUser, setUserName} = useContext(UserContext);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -99,6 +102,16 @@ const Body = () => {
           <button onClick={handleButton} className=" text-white bg-green-500 border border-solid border-green-500 px-4 py-1 font-bold rounded-xl hover:text-green-500 hover:bg-white ">
             {text}
           </button>
+        </div>
+        <div className="search-container p-4 flex gap-4 items-center">
+          <label className="font-bold">User Name: </label>
+          <input
+            className="search-input border border-solid border-black w-64 text-black cursor-text px-2"
+            type="text"
+            autoFocus
+            value={loggedInUser}
+            onChange={(event) => setUserName(event.target.value)}
+          />
         </div>
       </div>
       <div className="res-container flex flex-wrap justify-center items-center px-14 gap-2">
