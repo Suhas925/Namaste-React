@@ -14,9 +14,9 @@ const ItemList = ({ items }) => {
             <span className="text-lg font-bold">{item.card.info.name}</span>
             <span className="font-bold">
               ₹{" "}
-              {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
+              {item.card.info.price / 100 || item.card.info.defaultPrice / 100}/-
             </span>
-            <span className="text-sm text-green-500">
+            <span className="text-sm text-green-500 font-bold">
               ⭐{item.card.info.ratings.aggregatedRating.rating}(
               {item.card.info.ratings.aggregatedRating.ratingCountV2})
             </span>
@@ -24,14 +24,14 @@ const ItemList = ({ items }) => {
           </div>
 
           {/*Item Image container */}
-          <div className="p-2 relative aspect-[156/144]">
+          <div className="w-44 p-2 relative ">
             <img
-              className="w-40 rounded-2xl"
+              className="rounded-2xl aspect-[156/144] object-cover"
               src={CDN_URL + item.card.info.imageId}
             />
             <button
-              className="text-green-500 bg-white px-8 py-1 text-lg font-bold rounded-2xl shadow-lg
-          absolute bottom-1 left-10 hover:bg-gray-200 border border-gray-300"
+              className="text-green-500 bg-white px-8 py-1 text-lg font-bold rounded-2xl shadow-lg shadow-gray-200
+          absolute -bottom-1 left-9 hover:bg-gray-200 border border-solid border-gray-300"
             >
               ADD
             </button>

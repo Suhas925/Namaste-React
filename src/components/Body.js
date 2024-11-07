@@ -50,8 +50,10 @@ const Body = () => {
 
   const handleSearchBtn = () => {
     console.log(searchText);
-    const filteredRestaurants = listOfRestaurants.filter((res) =>
-      res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+    const filteredRestaurants = listOfRestaurants.filter((res) => (
+      res?.info?.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      res?.info?.cuisines.join(",").toLowerCase().includes(searchText.toLowerCase())
+    )
     );
     setFilteredRestaurants(filteredRestaurants);
   };
@@ -79,8 +81,9 @@ const Body = () => {
       <div className="btn-container flex justify-evenly items-center">
         <div className="search-container p-4 flex gap-4 items-center">
           <input
-            className="search-input border border-solid border-black w-64"
+            className="search-input border border-solid border-black w-64 text-black cursor-text px-2"
             type="text"
+            autoFocus
             value={searchText}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
