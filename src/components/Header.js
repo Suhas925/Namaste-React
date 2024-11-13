@@ -3,6 +3,9 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import UserContext from "../utils/UserContext.js";
+import { BsCart } from "react-icons/bs";
+
+import {useSelector} from "react-redux";
 
 const Header = () => {
   const [logBtn, setLogBtn] = useState("Login");
@@ -15,7 +18,9 @@ const Header = () => {
   const {loggedInUser} = useContext(UserContext);
   console.log("context data:", loggedInUser);
 
-  useEffect(() => {}, []);
+  // Subscribing to the Store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
   return (
     <div className="flex justify-between items-center shadow-lg mb-4">
@@ -45,7 +50,15 @@ const Header = () => {
               Grocery
             </Link>
           </li>
-          <li>Cart</li>
+          <li className="relative">
+            <Link className="flex hover:text-orange-500" to="/cart">
+              <BsCart className="text-3xl"/>
+              <span className="absolute bottom-[5px] left-3 font-bold text-base">
+                {cartItems.length}
+              </span>
+              <p className="ml-1">Cart</p>
+            </Link>
+          </li>
           <button
             onClick={handleButton}
             className="text-white bg-green-500 font-bold px-4 py-1 rounded-2xl border-2 border-solid border-green-500 hover:text-green-500 hover:bg-white w-24"

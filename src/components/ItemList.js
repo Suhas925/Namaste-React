@@ -1,7 +1,19 @@
 import { CDN_URL } from "../utils/constants";
+import {useDispatch} from "react-redux";
+import {addItems} from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
-  // console.log("items:", items);
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    // Dispatch an action
+    dispatch(addItems(item));
+    // Here, dispatch will create an object -> { payload:"Coffee"}
+    // Now it will take the object and pass it as a second argument to the addItems reducer function.
+
+  };
+
   return (
     <div className="">
       {items.map((item) => (
@@ -29,7 +41,7 @@ const ItemList = ({ items }) => {
               className="rounded-2xl aspect-[156/144] object-cover"
               src={CDN_URL + item.card.info.imageId}
             />
-            <button
+            <button onClick={() => handleAddItem(item)}
               className="text-green-500 bg-white px-8 py-1 text-lg font-bold rounded-2xl shadow-lg shadow-gray-200
           absolute -bottom-1 left-9 hover:bg-gray-200 border border-solid border-gray-300"
             >
